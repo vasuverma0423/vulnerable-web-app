@@ -1,0 +1,9 @@
+body {
+    background-image: url('avenger.jpg');
+    background-size: cover;
+}
+
+/* Inspect source to find the hidden path */
+.hidden-flag {
+    background: url('ironman.txt');
+}
