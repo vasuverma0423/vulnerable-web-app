@@ -1,0 +1,17 @@
+name: Build from Tag
+on:
+ push:
+   tags:
+     - 'v*' # Matches tags starting with 'v', e.g., v1.0.0
+jobs:
+ build:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout Code
+       uses: actions/checkout@v4
+       with:
+         ref: ${{ github.ref }} # Checks out the pushed tag
+     - name: Install Dependencies
+       run: npm install # Example for Node.js projects
+     - name: Build Project
+       run: npm run build # Replace with your build command
