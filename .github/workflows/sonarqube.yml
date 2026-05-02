@@ -3,6 +3,7 @@ name: SonarCloud analysis
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   Analysis:
@@ -17,8 +18,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=vasuverma0423
-            -Dsonar.projectKey=vasuverma0423_jb-hello-world-maven
+            -Dsonar.projectKey=vasuverma0423_vulnerable-web-app
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.exclusions=**/*.java
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
