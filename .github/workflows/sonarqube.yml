@@ -1,0 +1,24 @@
+name: SonarCloud analysis
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v2
+        with:
+          args: >
+            -Dsonar.organization=vasuverma0423
+            -Dsonar.projectKey=vasuverma0423_jb-hello-world-maven
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.exclusions=**/*.java
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
